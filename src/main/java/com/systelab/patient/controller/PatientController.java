@@ -1,16 +1,42 @@
 package com.systelab.patient.controller;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
-@Path("/patient")
+import com.systelab.patient.model.Patient;
+import com.systelab.patient.service.PatientService;
+
+import javax.inject.Inject;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.List;
+
+@Path("/patients")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class PatientController {
 
+    @Inject
+    PatientService service;
+
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "hello";
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Patient> list() {
+        return this.service.toList();
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Patient get(@PathParam("id") String id) {
+        return this.service.get(id);
+    }
+
+    @POST
+    public Patient add(Patient patient) {
+        return this.service.add(patient);
+    }
+
+    @DELETE
+    public Patient delete(Patient patient) {
+        return this.service.delete(patient);
     }
 }
