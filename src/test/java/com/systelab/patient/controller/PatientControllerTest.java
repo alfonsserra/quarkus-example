@@ -12,10 +12,10 @@ public class PatientControllerTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/patient")
+          .when().get("/patients")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(is("[]"));
     }
 
 }

@@ -1,15 +1,19 @@
 package com.systelab.patient.model;
 
-import javax.annotation.Generated;
+import com.google.common.collect.Lists;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 @Entity
-public class Patient {
+public class Patient implements Serializable {
 
     @Id
     @GeneratedValue
@@ -18,6 +22,10 @@ public class Patient {
     private String name;
 
     private String surname;
+
+    @ElementCollection
+    private List<PhoneNumber> phones = Lists.newLinkedList();
+
 
     protected Patient() {
     }
@@ -45,6 +53,17 @@ public class Patient {
 
     public String getSurname() {
         return surname;
+    }
+
+    public PhoneNumbers getPhones() {
+        return PhoneNumbers.of(phones);
+    }
+
+    public void addPhone(PhoneNumber phone) {
+        checkNotNull(phone);
+        if (!phones.contains(phone)) {
+            phones.add(phone);
+        }
     }
 
     @Override

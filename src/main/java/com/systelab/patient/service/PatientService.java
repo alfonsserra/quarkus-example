@@ -23,7 +23,7 @@ public class PatientService {
     }
 
     public Patient get(String id) {
-        Patient patient = em.find(Patient.class, new Long(id.toString()));
+        Patient patient = em.find(Patient.class, new Long(id));
         return Patient.of(patient.getName(), patient.getSurname());
     }
 
