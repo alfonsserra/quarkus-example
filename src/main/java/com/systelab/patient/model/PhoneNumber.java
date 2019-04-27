@@ -1,5 +1,6 @@
 package com.systelab.patient.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.base.MoreObjects;
 
 import javax.persistence.Embeddable;
@@ -15,6 +16,7 @@ public class PhoneNumber implements Serializable {
 
     private final int number;
 
+    @JsonIgnore
     private int hashCode;
 
     private PhoneNumber(int areaCode, int number) {
