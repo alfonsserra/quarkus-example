@@ -43,7 +43,11 @@ cd target
 java -jar quarkus-example-1.0-SNAPSHOT-runner.jar
 ```
 
+Swagger UI is accessible at http://localhost:8080/swagger-ui
+
 Test the application with:
+
+### Command line
 
 Create a patient:
 
