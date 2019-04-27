@@ -15,7 +15,7 @@ import java.util.List;
 public class PatientController {
 
     @Inject
-    PatientService service;
+    private PatientService service;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -31,11 +31,13 @@ public class PatientController {
     }
 
     @POST
+    @Path("/patient")
     public Patient add(Patient patient) {
         return this.service.add(patient);
     }
 
     @DELETE
+    @Path("/patient")
     public Patient delete(Patient patient) {
         return this.service.delete(patient);
     }
