@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
@@ -27,11 +28,16 @@ public class PatientService {
         return Patient.of(patient.getName(), patient.getSurname());
     }
 
+    @Transactional
     public Patient add(Patient patient) {
+        System.out.println("Add patient");
+        System.out.println(patient.getName());
+        System.out.println(patient.getSurname());
         em.persist(patient);
         return patient;
     }
 
+    @Transactional
     public Patient delete(Patient patient) {
         em.remove(patient);
         return patient;
