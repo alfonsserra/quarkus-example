@@ -43,6 +43,20 @@ cd target
 java -jar quarkus-example-1.0-SNAPSHOT-runner.jar
 ```
 
+Test the application with:
+
+Create a patient:
+
+```bash
+curl -d '{"name":"John", "surname":"Avila"}' -H "Content-Type: application/json" -X POST http://localhost:8080/patients/patient
+```
+
+Get the patient list
+
+```bash
+curl  -H "Content-Type: application/json" http://localhost:8080/patients
+```
+
 ### Development mode
 
 To run in development mode, run the following command:
@@ -50,6 +64,7 @@ To run in development mode, run the following command:
 ```bash
 mvn clean compile quarkus:dev
 ```
+
 
 
 
