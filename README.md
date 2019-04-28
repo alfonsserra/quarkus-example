@@ -34,6 +34,20 @@ In order to install the dependencies and generate the jar you must run:
 mvn package
 ```
 
+Generate a native application with [GraalVM][graal], with the following command:
+
+```bash
+mvn package -Pnative
+```
+
+### Development mode
+
+To run in development mode, run the following command:
+
+```bash
+mvn clean compile quarkus:dev
+```
+
 ### Run
 
 To launch the server, simply run with java -jar the generated jar file.
@@ -43,9 +57,15 @@ cd target
 java -jar quarkus-example-1.0-SNAPSHOT-runner.jar
 ```
 
+or run the native image:
+
+```bash
+cd target
+./quarkus-example-1.0-SNAPSHOT-runner
+```
+
 Swagger UI is accessible at http://localhost:8080/swagger-ui
 
-Test the application with:
 
 ### Command line
 
@@ -61,15 +81,6 @@ Get the patient list
 curl  -H "Content-Type: application/json" http://localhost:8080/patients
 ```
 
-### Development mode
-
-To run in development mode, run the following command:
-
-```bash
-mvn clean compile quarkus:dev
-```
-
-
 
 
 [git]: https://git-scm.com/
@@ -82,5 +93,6 @@ mvn clean compile quarkus:dev
 [swagger]: https://swagger.io/
 [allure]: https://docs.qameta.io/allure/
 [junit]: https://junit.org/junit5/
+[graal]: https://www.graalvm.org
 
 
