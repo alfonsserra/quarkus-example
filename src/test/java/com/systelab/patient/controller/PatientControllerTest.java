@@ -14,8 +14,7 @@ public class PatientControllerTest {
         given()
           .when().get("/patients")
           .then()
-             .statusCode(200)
-             .body(is("[]"));
+             .statusCode(200);
     }
 
 }
