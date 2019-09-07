@@ -19,10 +19,10 @@ import java.util.List;
 public class PatientController {
 
     @Inject
-    private PatientService service;
+    PatientService service;
 
     @Inject
-    private JsonWebToken jwt;
+    JsonWebToken jwt;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

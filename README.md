@@ -66,6 +66,14 @@ cd target
 
 Swagger UI is accessible at http://localhost:8080/swagger-ui
 
+### Docker
+
+Run the following commands to generate a Docker image:
+
+```bash
+mvn package -Pnative -Dnative-image.docker-build=true
+docker build -f src/main/docker/Dockerfile -t quarkus/quarkus-example .
+```
 
 ### Command line
 
@@ -80,6 +88,7 @@ Get the patient list
 ```bash
 curl  -H "Content-Type: application/json" http://localhost:8080/patients
 ```
+
 
 
 
